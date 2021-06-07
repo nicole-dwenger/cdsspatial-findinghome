@@ -5,7 +5,7 @@
 ---
 
 ## Description
-This repository contains all scripts and data of the shiny app **Finding Home**, which can be reporduced online through the following link: LINK
+This repository contains all scripts and data of the shiny app **Finding Home**, which can be reproduced online through the following link: https://cds-spatial.shinyapps.io/finding-home/ 
 
 This app was developed by Orla Mallon and Nicole Dwenger as the final project for the course Cultural Data Science: Spatial Analytics, at Aarhus University. THe aim of this app is to provide a self-exploratory tool, to compare districts of a city (London or Berlin) based on a set of variables. Thus, it is intended to help people on the move to find the district which would in which they would feel most at home based on their personal needs and interests. Feel free to go and explore the app. More information is also provided on the **About** tab in the app. 
 
@@ -46,7 +46,7 @@ shiny::runApp()
 Otherwise, if you have opened the `global.R`, `server.R` or `ui.R` file in R Studio, you can also run the app by clicking the small `Run` button in the Editor. You can stop the app, by clicking the small stop button in the console in R Studio. 
 
 ## License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
 
 ## Contact
 If you have any questions, feel free to contact us at 
