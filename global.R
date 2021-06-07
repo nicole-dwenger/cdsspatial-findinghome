@@ -187,8 +187,7 @@ get_rent_choices = function(city){
       "2-Bedroom Apartment" = "median_rent2b")}
   
   else if (city == "berlin"){
-    c("Euro/m2" = "median_rent")
-  }
+    c("Euro/m2" = "median_rent")}
 }
 
 # FUNCTIONS TO DRAW MAPS --------------------------------------
@@ -305,7 +304,6 @@ draw_popdens_map = function(city_data, assets){
               title = assets$legend_title,
               position = "topright", 
               opacity = 0.9)
-
 }
 
 # Age Distribution Map: Choropleth Map
@@ -349,7 +347,6 @@ draw_age_map = function(city_data, assets){
               title = assets$legend_title,
               position = "topright",
               opacity = 0.9)
-  
 }
 
 # Ethnicity Map (London): Dot Density Map
@@ -695,7 +692,6 @@ draw_rent_map = function(city_data, assets, rent_selected){
               title = assets$legend_title,
               position = "topright",
               opacity = 0.9)
-  
 }
 
 # Tree Cover Density Map: Choropleth Map
@@ -847,7 +843,6 @@ draw_histogram = function(input_variable, ethnicity_selected, origin_selected, r
       labs(x = "Age Range", y = paste("Percentage of", assets$shape, "Population"), 
            title = paste("Age distribution in", click$id))
   }
-  
 }
 
 # ASSETS --------------------------------------
@@ -870,8 +865,7 @@ get_assets = function(city, variable){
   # Name of the shape, depended on the city
   assets$shape_name = case_when(
     city == "london" ~ "Borough",
-    city == "berlin" ~ "Bezirk"
-  )
+    city == "berlin" ~ "Bezirk")
   
   # Name of the variable, for labels and plot
   assets$variable_name = case_when(
@@ -886,8 +880,7 @@ get_assets = function(city, variable){
     variable == "rent" & city == "london" ~ "Median Rent in ₤",
     variable == "rent" & city == "berlin" ~ "Median Rent in €/m2",
     variable == "treecover" ~ paste("Mean % of Tree Cover Density"),
-    variable == "imperviousness" ~ paste("Mean % of Imperviousness")
-  )
+    variable == "imperviousness" ~ paste("Mean % of Imperviousness"))
   
   # Name of the legend title
   assets$legend_title = case_when(
@@ -902,8 +895,7 @@ get_assets = function(city, variable){
     variable == "rent" & city == "london" ~ "Median Rent in ₤",
     variable == "rent" & city == "berlin" ~ "Median Rent in €/m2",
     variable == "treecover" ~ paste("Mean % of</br>Tree Cover Density"),
-    variable == "imperviousness" ~ paste("Mean % of</br>Imperviousness")
-  )
+    variable == "imperviousness" ~ paste("Mean % of</br>Imperviousness"))
   
   # Name of the plot title
   assets$plot_title = case_when(
@@ -918,8 +910,7 @@ get_assets = function(city, variable){
     variable == "rent" & city == "london" ~ paste("Median Rent per", assets$shape),
     variable == "rent" & city == "berlin" ~ paste("Median Rent in €/m2 per", assets$shape),
     variable == "treecover" ~ paste("Mean % of Tree Cover Density per", assets$shape),
-    variable == "imperviousness" ~ paste("Mean % of Imperviousness per", assets$shape)
-    )
+    variable == "imperviousness" ~ paste("Mean % of Imperviousness per", assets$shape))
   
   # Return assets
   assets

@@ -22,9 +22,6 @@ navbarPage("FINDING HOME IN THE CITY",
                                                  ".shiny-output-error { visibility: hidden; }",
                                                  ".shiny-output-error:before { visibility: hidden; }"),
                                       
-                                      # Heading on sidebar
-                                      #h4("What are you interested in?"),
-                                      
                                       # Adding city input option 
                                       h4("Where will be your new home?"),
                                       selectInput("city", NULL, cities, selected= "", width = "100%"),
@@ -79,7 +76,6 @@ navbarPage("FINDING HOME IN THE CITY",
                                         selectInput("rent_selected", NULL, choices = "", selected = "", width = "100%")),
                                       
                                       br(),
-                                      
                                       # If borough is selected, display which one, and allow option to clear the shape
                                       uiOutput("select_borough"),
                                       hr(),
@@ -89,7 +85,6 @@ navbarPage("FINDING HOME IN THE CITY",
                                       # Display reset all button to go back to start map
                                       actionButton("reset_all", "Reset to Start")))),
            
-                
            # PANEL2: ABOUT
            tabPanel("About",
                     includeMarkdown("about.md"))

@@ -10,7 +10,6 @@ function(input, output, session) {
 # Getting input options, which depend on other input, e.g. variables depend on city 
   
     ## Variable ----
-  
     # List of choices for variables depending on chosen city
     variable_choices = reactive({get_variable_choices(input$city)})
     
@@ -21,7 +20,6 @@ function(input, output, session) {
     })
     
     ## Ethnicity ----
-    
     # Get ethnicity choices
     ethnicity_choices = reactive({get_ethnicity_choices(input$city)})
     
@@ -32,7 +30,6 @@ function(input, output, session) {
     })
     
     ## Origin ---
-    
     # Get origin choices 
     origin_choices = reactive({get_origin_choices(input$city)})
     
@@ -43,7 +40,6 @@ function(input, output, session) {
     })
     
     ## Religion ----
-    
     # Get religion choices based on city
     religion_choices = reactive({get_religon_choices(input$city)})
     
@@ -54,7 +50,6 @@ function(input, output, session) {
     })
     
     ## Culture ----
-    
     # Get culture choices, same for both cities
     culture_choices = reactive({get_culture_choices()})
     
@@ -65,7 +60,6 @@ function(input, output, session) {
     })
     
     ## Point of Interest ----
-    
     # Get POI options based on city
     poi_choices = reactive({get_poi_choices(input$city)})
     
@@ -76,7 +70,6 @@ function(input, output, session) {
     })
     
     ## Rent ----
-
     # Get rent choices based on city
     rent_choices = reactive({get_rent_choices(input$city)})
     
@@ -158,7 +151,6 @@ function(input, output, session) {
 # Each variable has a plot function defined in global.R script
     
     ## Base and Start Map ----
-  
     # Draw base map 
     output$map = renderLeaflet({
       draw_base_map()
@@ -178,7 +170,6 @@ function(input, output, session) {
     })
     
     ## City Map ----
- 
     # Draw city map, if city is chosen or changed
     observeEvent(input$city, {
       req(input$city != "")
@@ -188,7 +179,6 @@ function(input, output, session) {
     })
     
     ## Variable Maps ----
-    
     # Listen to these inputs to update the map
     toListen <- reactive({list(input$variable, 
                                input$ethnicity_selected, 
@@ -197,7 +187,6 @@ function(input, output, session) {
                                input$culture_selected,
                                input$poi_selected, 
                                input$rent_selected)})
-    
     
     # Observe above defined varaibles and plot corresponding map
     observeEvent(toListen(), {
@@ -300,7 +289,6 @@ function(input, output, session) {
       } else {
         plotOutput("histogram")
       }
-      
     })
     
     ## Info Text ----
@@ -309,5 +297,4 @@ function(input, output, session) {
     output$variable_info = renderUI({
       req(input$variable != "")
       HTML(get_info_text(input$variable, input$city))})
-
 }

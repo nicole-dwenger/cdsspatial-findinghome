@@ -1,6 +1,6 @@
 # Spatial Analytics: Shiny App - Finding Home 
 
-[Description](#descripton) | (Data and Software)[#data-and-software] | [Reproducability](#reproducability) | [Credits and References](#credits-and-references) | [License](#license) | [Contact](#contact)
+[Description](#descripton) | [Data and Software](#data-and-software) | [Reproducability](#reproducability) | [Credits and References](#credits-and-references) | [License](#license) | [Contact](#contact)
 
 ---
 
@@ -46,7 +46,7 @@ shiny::runApp()
 Otherwise, if you have opened the `global.R`, `server.R` or `ui.R` file in R Studio, you can also run the app by clicking the small `Run` button in the Editor. You can stop the app, by clicking the small stop button in the console in R Studio. 
 
 ## License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a></br>Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
 
 ## Contact
 If you have any questions, feel free to contact us at 
