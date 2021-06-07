@@ -11,7 +11,7 @@ This app was developed by Orla Mallon and Nicole Dwenger as the final project fo
 
 ## Data and Software
 The data, which is contained in this repository and visualized on the app, was gathered from several sources and pre-processed in a separate [GitHub Repository](https://github.com/nicole-dwenger/cdsspatial-preprocessing). 
-All sources, references and licenses of the **raw** data can be found in the `about.md` file. The rendered version can be seen on the shiny app online, on the *About* tab. Here you can also find references to the software used in this project.
+All sources, references and licenses of the **raw** data can be found in the `about.md` file. Here you can also find references to the software used in this project.
 
 ## Reproducability
 The app is meant to be reproduced online. However, if you wish to run the app locally, you can clone the repository, and install necessary dependencies to run the app, by following these steps: 
