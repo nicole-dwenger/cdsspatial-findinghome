@@ -1,0 +1,27 @@
+
+.outer {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+#controls {
+  /* Appearance */
+  background-color: white;
+  padding: 20px 20px 20px 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  zoom: 0.87;
+  cursor: move;
+}
+
+#reset_all {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
