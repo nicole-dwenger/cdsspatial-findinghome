@@ -61,13 +61,13 @@ function(input, output, session) {
     
     ## Point of Interest ----
     # Get POI options based on city
-    poi_choices = reactive({get_poi_choices(input$city)})
+    # poi_choices = reactive({get_poi_choices(input$city)})
     
     # Update input options for POI
-    observe({updateSelectInput(session, "poi_selected",
-                               choices = poi_choices(),
-                               selected = poi_choices()[1])
-    })
+    # observe({updateSelectInput(session, "poi_selected",
+    #                            choices = poi_choices(),
+    #                            selected = poi_choices()[1])
+    # })
     
     ## Rent ----
     # Get rent choices based on city
@@ -185,7 +185,7 @@ function(input, output, session) {
                                input$origin_selected,
                                input$religion_selected,
                                input$culture_selected,
-                               input$poi_selected, 
+                               # input$poi_selected, 
                                input$rent_selected)})
     
     # Observe above defined varaibles and plot corresponding map
@@ -212,9 +212,9 @@ function(input, output, session) {
         req(input$culture_selected != "")
         draw_culture_map(city_data(), assets(), input$culture_selected, input$city)  
         
-      } else if (input$variable == "travel"){
-        req(input$poi_selected != "")
-        draw_travel_map(city_data(), assets(), input$poi_selected, poi_choices(), input$city)
+      # } else if (input$variable == "travel"){
+      #   req(input$poi_selected != "")
+      #   draw_travel_map(city_data(), assets(), input$poi_selected, poi_choices(), input$city)
     
       } else if (input$variable == "crime_rate"){
         draw_crime_map(city_data(), assets())
@@ -245,7 +245,7 @@ function(input, output, session) {
       if (input$variable == "origin"){req(length(input$origin_selected) == 1)}
       # Draw the histogram
       draw_histogram(input$variable, input$ethnicity_selected, input$origin_selected, input$religion_selected,
-                     input$culture_selected,input$poi_selected, input$rent_selected, rv$click, city_data(), assets())
+                     input$culture_selected, input$rent_selected, rv$click, city_data(), assets()) # input$poi_selected,
     })
     
     # Output of text for ethnicity (London)

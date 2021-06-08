@@ -7,7 +7,7 @@
 ## Description
 This repository contains all scripts and data of the shiny app **Finding Home**, which can be reproduced online through the following link: https://cds-spatial.shinyapps.io/finding-home/ 
 
-This app was developed by Orla Mallon and Nicole Dwenger as the final project for the course Cultural Data Science: Spatial Analytics, at Aarhus University. THe aim of this app is to provide a self-exploratory tool, to compare districts of a city (London or Berlin) based on a set of variables. Thus, it is intended to help people on the move to find the district which would in which they would feel most at home based on their personal needs and interests. Feel free to go and explore the app. More information is also provided on the **About** tab in the app. 
+This app was developed by Orla Mallon and Nicole Dwenger as the final project for the course Cultural Data Science: Spatial Analytics, at Aarhus University. THe aim of this app is to provide a self-exploratory tool, to compare districts of a city (London or Berlin) based on a set of variables. Thus, it is intended to help people on the move to find the district in which they would feel most at home based on their personal needs and interests. Feel free to go and explore the app. More information is also provided on the **About** tab in the app. Note, that several chunks of code relating to the variable of Transit Travel Time are commented out as it was not possible to visualize them in line with license agreements of [Google Maps](https://cloud.google.com/maps-platform/terms/#3.-license).
 
 ## Data and Software
 The data, which is contained in this repository and visualized on the app, was gathered from several sources and pre-processed in a separate [GitHub Repository](https://github.com/nicole-dwenger/cdsspatial-preprocessing). 
@@ -50,4 +50,4 @@ Otherwise, if you have opened the `global.R`, `server.R` or `ui.R` file in R Stu
 
 ## Contact
 If you have any questions, feel free to contact us at 
-[nicole.dwengr@gmail.com](nicole.dwengr@gmail.com) or 
+[orla.mallon95@gmail.com](orla.mallon95@gmail.com]) or [nicole.dwengr@gmail.com](nicole.dwengr@gmail.com)

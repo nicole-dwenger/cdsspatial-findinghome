@@ -63,11 +63,11 @@ navbarPage("FINDING HOME IN THE CITY",
                                         radioGroupButtons("culture_selected", NULL, choices = "", selected = "", width = "100%")),
                                       
                                       # Adding optional input for POI to come up 
-                                      conditionalPanel(
-                                        condition = "input.variable == 'travel'",
-                                        h4("What point of interest (PoI) are you interested in?"),
-                                        selectInput("poi_selected", NULL, choices = "", selected = "", width = "100%"),
-                                        htmlOutput("travel_info")),
+                                      # conditionalPanel(
+                                      #   condition = "input.variable == 'travel'",
+                                      #   h4("What point of interest (PoI) are you interested in?"),
+                                      #   selectInput("poi_selected", NULL, choices = "", selected = "", width = "100%"),
+                                      #   htmlOutput("travel_info")),
                                       
                                       # Adding optional input for rent to come up
                                       conditionalPanel(
@@ -75,12 +75,15 @@ navbarPage("FINDING HOME IN THE CITY",
                                         h4("What type of measure are you interested in?"),
                                         selectInput("rent_selected", NULL, choices = "", selected = "", width = "100%")),
                                       
+                                      # Line break
                                       br(),
                                       # If borough is selected, display which one, and allow option to clear the shape
                                       uiOutput("select_borough"),
+                                      # Horizontal Line
                                       hr(),
                                       # Display conditional histogram
                                       uiOutput("conditional_histogram", height = 400), 
+                                      # Horizontal Line
                                       hr(),
                                       # Display reset all button to go back to start map
                                       actionButton("reset_all", "Reset to Start")))),

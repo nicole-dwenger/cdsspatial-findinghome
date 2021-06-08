@@ -1,15 +1,15 @@
 ### 1. About this App
 This shiny app was developed by Orla Mallon and Nicole Dwenger as the Final Project of the course Cultural Data Science: Spatial Analytics at Aarhus University.  
-This app aims to provide a tool to help people that are moving to a new city, to find areas which would suit best to them.
+The app aims to provide a tool which will help people that are moving to a new city find areas which are the best fit for their needs.
 
 All code, scripts and data of this app can be found on [Github](https://github.com/nicole-dwenger/cdsspatial-findinghome).
-The data, which is displayed on this app was prepared and preprocessed in several separate scripts, which can also be found on [Github](https://github.com/nicole-dwenger/cdsspatial-preprocessing). Sources can be found below (3.).  
+The data, which is displayed on this app was prepared and preprocessed in several separate scripts, which can also be found on [Github](https://github.com/nicole-dwenger/cdsspatial-preprocessing).  
+Sources can be found below (3.).  
 
-If you have any questions, feel free to contact us at:  
-[nicole.dwengr@gmail.com](nicole.dwengr@gmail.com) or 
+If you have any questions, feel free to contact us at [orla.mallon95@gmail.com](orla.mallon95@gmail.com]) or [nicole.dwengr@gmail.com](nicole.dwengr@gmail.com).
 
 ### 2. Things to Keep in Mind when Using the App
-Firstly, it should be noted that for best visualization, the app should be used with the default tiles. Feel free to also explore the other tiles, we just cannot guarantee that it will look great. Second, the app it intended to be used for comparison of districts within each city. If you are exploring variables across cities, keep in mind that scales and coloring schemes differ between cities. Thus, make sure to carefully take into consideration the legend. 
+Firstly, it should be noted that for best visualization, the app should be used with the default tiles. Feel free to also explore the other tiles, we just cannot guarantee that it will look great. Second, the app is intended to be used for comparison of districts within each city. If you are exploring variables across cities, keep in mind that scales and coloring schemes differ between cities. Thus, make sure to carefully take into consideration the legend. 
 It should also be noted, that this app mainly visualizes data on the level of boroughs in London and Bezirke in Berlin. Consequently, it cannot display more fine-grained and local features. In other words, you might still find a green neighborhood in a district with a low mean % of tree cover density. 
 Lastly, please make use of the *information* button for more detailed information of the variable. Take into consideration, that cities are ever-changing, and the data might not correspond to the current state. 
 
@@ -17,22 +17,26 @@ Lastly, please make use of the *information* button for more detailed informatio
 Thanks to all the great people and organizations who share their data, software and ideas!
 
 #### 3.1. Data
-The references below refer to the raw data sources, which were preprocessed to be used on this app. 
+The references below refer to the raw data sources, which were pre-processed to be used on this app. 
 
 ##### 3.1.1. London 
 This project contains Ordnance Survey data © Crown copyright and database right 2011.  
 This project contains National Statistics data © Crown copyright and database right 2011.  
 
 - Greater London Authority (2011a) London Borough Profiles and Atlas [Data Set, Web app].  
-Retrieved May 2021 from https://data.london.gov.uk/dataset/london-borough-profiles. Licensed under UK Open Government Licence.
+Retrieved May 2021 from https://data.london.gov.uk/dataset/london-borough-profiles. Licensed under UK Open Government License.
 - Greater London Authority (2011b). Statistical GIS Boundary Files for London [Data Set].  
 Retrieved May 2021 from https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london. Licensed under UK Open Government Licence.
 - Greater London Authority. (2020). 2019-based trend projections, Central Range (upperbound) [Data Set].  
 Retrieved May, 2021 from https://data.london.gov.uk/dataset/gla-population-projections-custom-age-tables?q=ae%20demographics. Licensed under UK Open Government License.
 - Metropolitan Police Service. (2021). MPS Borough Level Crime (most recent 24 months) [Data Set].  
 Retrieved May 2021 from https://data.london.gov.uk/dataset/recorded_crime_summary. Licensed under UK Open Government Licence.
-- Office for National Statistics (2021). Private rental market in London: January to December 2020 [Data Set]. Retrieved May 2021 from https://www.ons.gov.uk/peoplepopulationandcommunity/housing/adhocs/12871privaerentalmarketinlondonjanuarytodecember2020. Licensed under UK Open
-Government License.
+- Office for National Statistics (2011). Census Data 2011 - Workday Population - Ethnic Group. [Data	Set]. Retrieved May 2021, from https://www.nomisweb.co.uk/census/2011/wd201ew.  
+Licensed under UK Open Government License.
+- Office for National Statistics (2021). Private rental market in London: January to December 2020 [Data Set]. Retrieved May 2021 from
+https://www.ons.gov.uk/peoplepopulationandcommunity/housing/adhocs/12871privaerentalmarketinlondonjanuarytodecember2020. Licensed under UK Open Government License.
+- UCL (on behalf of Greater London Authority), 2014. London Output Area Classification [Data Set]. Retrieved May 2021, from
+https://data.london.gov.uk/dataset/london-area-classification. Licensed under CC.
  
 ##### 3.1.2. Berlin
 
@@ -50,6 +54,8 @@ Retrieved May 2021, through FIS-Broker, from https://fbinter.stadt-berlin.de/fb/
 - © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018a). High Resolution Layer: Imperviousness Density (IMD) 2018 [Data Set]. Retrieved May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/imperviousness/statusmaps/imperviousness-density-2018?tab=metadata. Licensed under Copernicus data and information policy Regulation (EU).
 - © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018b). High Resolution Layer: Tree Cover Density (TCD) 2018 [Data Set]. Retrieved from May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-denity/status-maps/tree-cover-density-2018?tab=mapview. Licensed under Copernicus data and information policy Regulation (EU)
 - Google (n.d.). [Google Maps coordinates for defined PoI]. Retrieved 1 June 2021 from https://www.google.de/maps.
+- OpenStreetMap contributors. (2021) Data of Places of Worship, Museums, Theatres and Nightlife
+[Data Sets from 2021]. Retrieved May 2021. Licensed under Open Data Commons Open Database License. 
 
 #### 3.2. Software
 - Appelhans, T. (2020). leafem: 'leaflet' Extensions for 'mapview'. R package version 0.1.3. https://CRAN.R-project.org/package=leafem

@@ -38,7 +38,7 @@ london_religion_loc = readRDS("data/london/london_religion_locations.rds")
 # Spatial point data of museums, theaters and nightlife
 london_culture_loc = readRDS("data/london/london_culture_locations.rds")
 # Spatial point data of points of interest, for transit travel time
-london_poi = read.csv("data/london/london_poi.csv")
+# london_poi = read.csv("data/london/london_poi.csv")
 
 # Berlin Data
 # Main data with Bezirk geometries and attribute data
@@ -50,7 +50,7 @@ berlin_religion_loc = readRDS("data/berlin/berlin_religion_locations.rds")
 # Spatial point data of museums, theaters and nightlife
 berlin_culture_loc = readRDS("data/berlin/berlin_culture_locations.rds")
 # Spatial point data of points of interest, for transit travel time
-berlin_poi = read.csv("data/berlin/berlin_poi.csv")
+# berlin_poi = read.csv("data/berlin/berlin_poi.csv")
 
 
 # SELECT DATA --------------------------------------------------------
@@ -80,7 +80,7 @@ get_variable_choices = function(city){
       "Diversity: Ethnicities" = "ethnicity",
       "Places of Culture: Places of Worship (PoW)" = "religion",
       "Places of Culture: Museums, Theatres & Nightlife" = "culture",
-      "Infrastructure: Transit Traveltime" = "travel",
+      # "Infrastructure: Transit Traveltime" = "travel",
       "Psychological Security: Crime" = "crime_rate",
       "Psychological Security: Rent" = "rent",
       "Nature: Tree Cover Density" = "treecover",
@@ -93,7 +93,7 @@ get_variable_choices = function(city){
       "Diversity: Places of Origin" = "origin",
       "Places of Culture: Places of Worhsip (PoW)" = "religion",
       "Places of Culture: Museums, Theatres & Nightlife" = "culture",
-      "Infrastructure: Transit Traveltime" = "travel",
+      # "Infrastructure: Transit Traveltime" = "travel",
       "Psychological Security: Crime" = "crime_rate",
       "Psychological Security: Rent" = "rent",
       "Nature: Tree Cover Density" = "treecover",
@@ -155,29 +155,29 @@ get_culture_choices = function(){
 }
 
 # Point of interest options for travel time, dependent on city
-get_poi_choices = function(city){
-  
-  if (city == "london"){
-    c("Train Station Liverpool Street" = "train_liverpoolstreet",
-      "Train Station London Bridge" = "train_londonbridge",
-      "Train Station Kings Cross" = "train_kingscross",
-      "Train Station Paddington" = "train_paddington",
-      "Train Station Victoria" = "train_victoria",
-      "Train Station Waterloo" = "train_waterloo",
-      "Airport Gatwick" = "air_gatwick",
-      "Airport Heathrow" = "air_heathrow",
-      "Airport London City" = "air_londonca",
-      "Airport Luton" = "air_luton",
-      "Airport Stansted" = "air_stansted",
-      "Airport Southend" = "air_southend")}
-  
-  else if (city == "berlin"){
-    c("Train Station Central" = "train_central",
-      "Train Station Westkreuz" = "train_westkreuz",
-      "Train Station Ostkreuz" = "train_ostkreuz",
-      "Train Station Südkreuz" = "train_südkreuz", 
-      "Airport Berlin/Brandenburg" = "air_berlin_brandenburg")}
-}
+# get_poi_choices = function(city){
+#   
+#   if (city == "london"){
+#     c("Train Station Liverpool Street" = "train_liverpoolstreet",
+#       "Train Station London Bridge" = "train_londonbridge",
+#       "Train Station Kings Cross" = "train_kingscross",
+#       "Train Station Paddington" = "train_paddington",
+#       "Train Station Victoria" = "train_victoria",
+#       "Train Station Waterloo" = "train_waterloo",
+#       "Airport Gatwick" = "air_gatwick",
+#       "Airport Heathrow" = "air_heathrow",
+#       "Airport London City" = "air_londonca",
+#       "Airport Luton" = "air_luton",
+#       "Airport Stansted" = "air_stansted",
+#       "Airport Southend" = "air_southend")}
+#   
+#   else if (city == "berlin"){
+#     c("Train Station Central" = "train_central",
+#       "Train Station Westkreuz" = "train_westkreuz",
+#       "Train Station Ostkreuz" = "train_ostkreuz",
+#       "Train Station Südkreuz" = "train_südkreuz", 
+#       "Airport Berlin/Brandenburg" = "air_berlin_brandenburg")}
+# }
 
 # Rent options, dependent on city
 get_rent_choices = function(city){
@@ -535,80 +535,80 @@ draw_culture_map = function(city_data, assets, culture_selected, city){
 }
 
 # Transit Travel Time Map: Choropleth Map with additional Elements
-draw_travel_map = function(city_data, assets, poi_selected, poi_choices, city){
-
-  # Select data frame with poi based on city
-  if (city == "london"){poi_data=london_poi}
-  else if (city == "berlin"){poi_data=berlin_poi}
-  
-  # Getting coordinates and name of point of interest
-  poi_lat = poi_data$lat[poi_data$id == poi_selected]
-  poi_lng = poi_data$lng[poi_data$id == poi_selected]
-  poi_name = names(poi_choices[poi_choices == poi_selected])
-  
-  # Get subset of only the travel times for the poi
-  travel_df = city_data %>%
-    dplyr::select("name" = name, "traveltime" = paste0("time_", poi_selected), "center_coords" = center_coords)
-  
-  # Define color palette
-  # For trains
-  if (grepl("train", poi_selected) == TRUE){
-    pal = colorBin(
-      palette =  c("#31a354", "#fee8c8", "#e34a33"),
-      bins = c(0,15,30,45,60,75,90),
-      domain = travel_df$traveltime,
-      pretty = TRUE)
-  # For airports
-  } else {
-    pal = colorBin(
-      palette =  c("#31a354", "#fee8c8", "#e34a33"),
-      bins = 6,
-      domain = travel_df$traveltime,
-      pretty = TRUE)
-  }
-  
-  # Define icon, depending on train or airplane
-  icon_label = ifelse(grepl("train", poi_selected) == TRUE, "train", "plane-departure")
-  icon = makeAwesomeIcon(text = fa(icon_label), iconColor = "black", markerColor = "white")
-  
-  # Define label of polygons
-  label <- lapply(seq(nrow(travel_df)), function(i) {
-    paste0("<b>", assets$shape_name,": </b>", travel_df$name[i], "</br>", 
-           "<b>", assets$variable_name, ": </b> ", round(as.numeric(travel_df$traveltime[i]), 2), " min")})
-  
-  # Update map with markers
-  leafletProxy("map") %>%
-    # Clear all existing elements
-    clearControls() %>%
-    clearMarkers() %>%
-    clearMarkerClusters() %>%
-    clearImages() %>%
-    # Add colored pol<gons
-    addPolygons(data = travel_df,
-                layerId = ~name,
-                color = "black",
-                weight = 1,
-                opacity = 0.8,
-                fillColor = ~pal(traveltime),
-                fillOpacity = 0.9,
-                highlightOptions = highlightOptions(color = "black", weight = 3, bringToFront = TRUE),
-                label = lapply(label, htmltools::HTML)) %>%
-    # Add markers for the point of interest
-    addAwesomeMarkers(lng = poi_lng,
-                      lat = poi_lat,
-                      label = poi_name,
-                      icon = icon) %>%
-    # Add markers for the centroids
-    addCircleMarkers(data = travel_df$center_coords, 
-                     radius = 1, 
-                     color = "white") %>%
-    # Add a legend
-    addLegend(pal = pal,
-              values = travel_df$traveltime,
-              title = assets$legend_title,
-              position = "topright", 
-              opacity = 1)
-}
+# draw_travel_map = function(city_data, assets, poi_selected, poi_choices, city){
+# 
+#   # Select data frame with poi based on city
+#   if (city == "london"){poi_data=london_poi}
+#   else if (city == "berlin"){poi_data=berlin_poi}
+#   
+#   # Getting coordinates and name of point of interest
+#   poi_lat = poi_data$lat[poi_data$id == poi_selected]
+#   poi_lng = poi_data$lng[poi_data$id == poi_selected]
+#   poi_name = names(poi_choices[poi_choices == poi_selected])
+#   
+#   # Get subset of only the travel times for the poi
+#   travel_df = city_data %>%
+#     dplyr::select("name" = name, "traveltime" = paste0("time_", poi_selected), "center_coords" = center_coords)
+#   
+#   # Define color palette
+#   # For trains
+#   if (grepl("train", poi_selected) == TRUE){
+#     pal = colorBin(
+#       palette =  c("#31a354", "#fee8c8", "#e34a33"),
+#       bins = c(0,15,30,45,60,75,90),
+#       domain = travel_df$traveltime,
+#       pretty = TRUE)
+#   # For airports
+#   } else {
+#     pal = colorBin(
+#       palette =  c("#31a354", "#fee8c8", "#e34a33"),
+#       bins = 6,
+#       domain = travel_df$traveltime,
+#       pretty = TRUE)
+#   }
+#   
+#   # Define icon, depending on train or airplane
+#   icon_label = ifelse(grepl("train", poi_selected) == TRUE, "train", "plane-departure")
+#   icon = makeAwesomeIcon(text = fa(icon_label), iconColor = "black", markerColor = "white")
+#   
+#   # Define label of polygons
+#   label <- lapply(seq(nrow(travel_df)), function(i) {
+#     paste0("<b>", assets$shape_name,": </b>", travel_df$name[i], "</br>", 
+#            "<b>", assets$variable_name, ": </b> ", round(as.numeric(travel_df$traveltime[i]), 2), " min")})
+#   
+#   # Update map with markers
+#   leafletProxy("map") %>%
+#     # Clear all existing elements
+#     clearControls() %>%
+#     clearMarkers() %>%
+#     clearMarkerClusters() %>%
+#     clearImages() %>%
+#     # Add colored pol<gons
+#     addPolygons(data = travel_df,
+#                 layerId = ~name,
+#                 color = "black",
+#                 weight = 1,
+#                 opacity = 0.8,
+#                 fillColor = ~pal(traveltime),
+#                 fillOpacity = 0.9,
+#                 highlightOptions = highlightOptions(color = "black", weight = 3, bringToFront = TRUE),
+#                 label = lapply(label, htmltools::HTML)) %>%
+#     # Add markers for the point of interest
+#     addAwesomeMarkers(lng = poi_lng,
+#                       lat = poi_lat,
+#                       label = poi_name,
+#                       icon = icon) %>%
+#     # Add markers for the centroids
+#     addCircleMarkers(data = travel_df$center_coords, 
+#                      radius = 1, 
+#                      color = "white") %>%
+#     # Add a legend
+#     addLegend(pal = pal,
+#               values = travel_df$traveltime,
+#               title = assets$legend_title,
+#               position = "topright", 
+#               opacity = 1)
+# }
 
 # Crime Map. Choropleth Map
 draw_crime_map = function(city_data, assets){
@@ -775,7 +775,7 @@ draw_impervious_map = function(city_data, assets){
 
 # Function to draw the histogram, for most variables
 draw_histogram = function(input_variable, ethnicity_selected, origin_selected, religion_selected, 
-                               culture_selected, poi_selected, rent_selected, click, city_data, assets){
+                               culture_selected, rent_selected, click, city_data, assets){ #poi_selected,
   
   # Special cases, where the variable is specified with another input option
   variable = case_when(
@@ -784,7 +784,7 @@ draw_histogram = function(input_variable, ethnicity_selected, origin_selected, r
     input_variable == "culture" ~ paste0("n_", culture_selected),
     input_variable == "religion" ~ paste0("n_", religion_selected),
     input_variable == "rent" ~ rent_selected,
-    input_variable == "travel" ~ paste0("time_", poi_selected),
+    #input_variable == "travel" ~ paste0("time_", poi_selected),
     TRUE ~ input_variable # else just the same name
   )
   
@@ -875,7 +875,7 @@ get_assets = function(city, variable){
     variable == "origin" ~ "% of Population of Origin",
     variable == "religion" ~ "Number of PoW for Selected Religion",
     variable == "culture" ~ "Number of Places for Selected Type",
-    variable == "travel" ~ paste("Transit Travel Time in Minutes"),
+    #variable == "travel" ~ paste("Transit Travel Time in Minutes"),
     variable == "crime_rate" ~ "Number of Crimes per 1000",
     variable == "rent" & city == "london" ~ "Median Rent in ₤",
     variable == "rent" & city == "berlin" ~ "Median Rent in €/m2",
@@ -890,7 +890,7 @@ get_assets = function(city, variable){
     variable == "origin" ~ "Place of Origin",
     variable == "religion" ~ "Number of Places",
     variable == "culture" ~ "Number of Places",
-    variable == "travel" ~ paste("Transit Travel Time</br>to PoI in Minutes"),
+    #variable == "travel" ~ paste("Transit Travel Time</br>to PoI in Minutes"),
     variable == "crime_rate" ~ "Number of Crimes per 1000",
     variable == "rent" & city == "london" ~ "Median Rent in ₤",
     variable == "rent" & city == "berlin" ~ "Median Rent in €/m2",
@@ -905,7 +905,7 @@ get_assets = function(city, variable){
     variable == "origin" ~ paste("Place of Origin Population per", assets$shape),
     variable == "religion" ~ paste("Number of PoW per", assets$shape),
     variable == "culture" ~ paste("Number of places per", assets$shape),
-    variable == "travel" ~ paste("Transit Travel Time to PoI per", assets$shape),
+    #variable == "travel" ~ paste("Transit Travel Time to PoI per", assets$shape),
     variable == "crime_rate" ~ paste("Crime Rate per", assets$shape),
     variable == "rent" & city == "london" ~ paste("Median Rent per", assets$shape),
     variable == "rent" & city == "berlin" ~ paste("Median Rent in €/m2 per", assets$shape),
@@ -925,12 +925,12 @@ get_info_text = function(variable, city){
   text = case_when(
     variable == "population_dens_km2" & city == "london" ~ "<p>Total population are 2019-based projections for 2020, 
     extracted and processed from the <a href='https://data.london.gov.uk/dataset/gla-population-projections-custom-age-tables?q=age%20demographics'> 
-    London Data Store</a>, where you can find the data and additional metadta. Area values for each borough were calculated from vector data of the boroughs.
-    The total popualtion values were divided by the area to get a measure of population density.</p>",
+    London Data Store</a>, where you can find the data and additional metadata. Area values for each borough were calculated from vector data of the boroughs.
+    The total population values were divided by the area to get a measure of population density.</p>",
     
-    variable == "population_dens_km2" & city == "berlin" ~ "<p>Total population values were extracted for 31.12.2019, from the 
+    variable == "population_dens_km2" & city == "berlin" ~ "<p>Total population values were extracted for 2019/12/31, from the 
     <a href='https://www.statistik-berlin-brandenburg.de/webapi/jsf/dataCatalogueExplorer.xhtml'> 
-    Einwohnerregisterstatistik Berlin</a>, where you can also find additional metadta. Area values for each Bezirk were calculated from the vector data of the Bezirke. 
+    Einwohnerregisterstatistik Berlin</a>, where you can also find additional metadata. Area values for each Bezirk were calculated from the vector data of the Bezirke. 
     Total popualtion values were divided by the area to get a measure of population density.</p>",
     
     variable == "age_mean" & city == "london" ~ "<p>Values were extracted and calculated using 2019-based projected values 
@@ -943,14 +943,15 @@ get_info_text = function(variable, city){
     Einwohnerregisterstatistik Berlin</a>, where you can also find metadata. Detailed calcualtions can be seen on <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>
     GitHub</a>.</p>",
     
-    variable == "ethnicity" ~ "<p>Dots were sampled on the level of output areas in London, based on the 2011 census data, extracted
-    from the <a href='LINK'> 
-    NAME</a>. Percentages were calculated by matching output areas to the boroughs. See <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>
+    variable == "ethnicity" ~ "<p>Dots were sampled on the level of output areas in London, based on the <a href='https://www.nomisweb.co.uk/census/2011/wd201ew'> 
+    Census Data of 2011</a> and spatial data of <a href='https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london'> 
+    Output Areas</a>. Percentages were calculated by matching output areas to the boroughs. See <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>
     GitHub</a> for sampling of dots.</p>",
 
     variable == "origin" ~ "<p>Dots were sampled on the level of Planungsräume in Berlin, based on data from 2019/12/31 from the 
-    <a href='https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml '> Einwohnerregisterstatistik Berlin</a>. 
-    Percentages were calculated by matching output areas to the boroughs. See <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>
+    <a href='https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml '> Einwohnerregisterstatistik Berlin</a>, and
+    spatial data of <a href='https://fbinter.stadt-berlin.de/fb/index.jsp '> 
+    Planungsräume</a>. Percentages were calculated by matching output areas to the boroughs. See <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>
     GitHub</a> for sampling of dots.</p>",
     
     variable == "religion" ~ "<p>Data was extracted from Open Street Map. Details of the queries can be seen on 
@@ -959,10 +960,10 @@ get_info_text = function(variable, city){
     variable == "culture" ~ "<p>Data was extracted from Open Street Map. Details of the queries can be seen on 
     <a href='https://github.com/nicole-dwenger/cdsspatial-preprocessing'>GitHub</a>. Note, that nightlife includes bars, pubs and nightclubs.</p>",
     
-    variable == "travel" ~ "<p>Travel times were extracted from Google Maps. They indicate
-    the times it takes to travel from the centroid of each borough or Bezirk to the PoI, using public transport on Monday (2021/06/07) at 8:00am. 
-    Be aware that times may vary depending on the time and day, the values should rather be used for comparison. If you cannot see the location of an aiport 
-    on the map, try zooming out.</p>",
+    # variable == "travel" ~ "<p>Travel times were extracted from Google Maps. They indicate
+    # the times it takes to travel from the centroid of each borough or Bezirk to the PoI, using public transport on Monday (2021/06/07) at 8:00am. 
+    # Be aware that times may vary depending on the time and day, the values should rather be used for comparison. If you cannot see the location of an aiport 
+    # on the map, try zooming out.</p>",
 
     variable == "crime_rate" & city == "london" ~ "<p>Crime data of 2020 was extracted from the 
     <a href = https://data.london.gov.uk/dataset/recorded_crime_summary> London Data Store</a>, where you can also find further metadata. 
@@ -977,7 +978,7 @@ get_info_text = function(variable, city){
     
     variable == "rent" & city == "london" ~ "<p>Rent values refer to the median rent for an apartment 
     in the private rent market in 2020. These were extracted from the <a href='https://www.ons.gov.uk/peoplepopulationandcommunity/housing/adhocs/12871privaterentalmarketinlondonjanuarytodecember2020'>
-    Office of National Statistiks</a>, where you can also find additional metadata.</p>",
+    Office of National Statistics</a>, where you can also find additional metadata.</p>",
     
     variable == "rent" & city == "berlin" ~ "<p>Rent values refer to the median net rent without utilities per m2, in 2018. Data and additional metadata
     can of the Wohnatlas can be found <a href='https://www.stadtentwicklung.berlin.de/wohnen/wohnatlas/index.shtml'> here</a>.<p>",
