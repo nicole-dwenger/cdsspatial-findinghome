@@ -2,7 +2,6 @@
 
 [Description](#descripton) | [Data and Software](#data-and-software) | [Reproducability](#reproducability) | [Credits and References](#credits-and-references) | [License](#license) | [Contact](#contact)
 
----
 
 ## Description
 This repository contains all scripts and data of the shiny app **Finding Home**, which can be reproduced online through the following link: https://cds-spatial.shinyapps.io/finding-home/ 
