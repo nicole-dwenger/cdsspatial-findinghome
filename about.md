@@ -2,7 +2,7 @@
 This shiny app was developed by Orla Mallon and Nicole Dwenger as the Final Project of the course Cultural Data Science: Spatial Analytics at Aarhus University.  
 The app aims to provide a tool which will help people that are moving to a new city find areas which are the best fit for their needs.
 
-All code, scripts and data of this app can be found on [Github](https://github.com/nicole-dwenger/cdsspatial-findinghome).
+All code, scripts and data of this app can be found on [Github](https://github.com/nicole-dwenger/cdsspatial-findinghome).  
 The data, which is displayed on this app was prepared and preprocessed in several separate scripts, which can also be found on [Github](https://github.com/nicole-dwenger/cdsspatial-preprocessing).  
 Sources can be found below (3.).  
 
@@ -23,38 +23,32 @@ The references below refer to the raw data sources, which were pre-processed to 
 This project contains Ordnance Survey data © Crown copyright and database right 2011.  
 This project contains National Statistics data © Crown copyright and database right 2011.  
 
-- Greater London Authority (2011a) London Borough Profiles and Atlas [Data Set, Web app].  
-Retrieved May 2021 from https://data.london.gov.uk/dataset/london-borough-profiles. Licensed under UK Open Government License.
-- Greater London Authority (2011b). Statistical GIS Boundary Files for London [Data Set].  
-Retrieved May 2021 from https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london. Licensed under UK Open Government Licence.
-- Greater London Authority. (2020). 2019-based trend projections, Central Range (upperbound) [Data Set].  
+- Greater London Authority (2011a) London Borough Profiles and Atlas [Data Set, Web app]. Retrieved May 2021 from https://data.london.gov.uk/dataset/london-borough-profiles. Licensed under UK Open Government License.
+- **Borough and Output Shapefiles**: Greater London Authority (2011b). Statistical GIS Boundary Files for London [Data Set]. Retrieved May 2021 from https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london. Licensed under UK Open Government License.
+- **Population and Age**: Greater London Authority. (2020). 2019-based trend projections, Central Range (upperbound) [Data Set].  
 Retrieved May, 2021 from https://data.london.gov.uk/dataset/gla-population-projections-custom-age-tables?q=ae%20demographics. Licensed under UK Open Government License.
-- Metropolitan Police Service. (2021). MPS Borough Level Crime (most recent 24 months) [Data Set].  
-Retrieved May 2021 from https://data.london.gov.uk/dataset/recorded_crime_summary. Licensed under UK Open Government Licence.
-- Office for National Statistics (2011). Census Data 2011 - Workday Population - Ethnic Group. [Data	Set]. Retrieved May 2021, from https://www.nomisweb.co.uk/census/2011/wd201ew.  
+- **Crime Data**: Metropolitan Police Service. (2021). MPS Borough Level Crime (most recent 24 months) [Data Set]. Retrieved May 2021 from https://data.london.gov.uk/dataset/recorded_crime_summary. Licensed under UK Open Government Licence.
+- **Ethnicity Data**: Office for National Statistics (2011). Census Data 2011 - Workday Population - Ethnic Group. [Data	Set]. Retrieved May 2021, from https://www.nomisweb.co.uk/census/2011/wd201ew.  
 Licensed under UK Open Government License.
-- Office for National Statistics (2021). Private rental market in London: January to December 2020 [Data Set]. Retrieved May 2021 from
+- **Rent Data**: Office for National Statistics (2021). Private rental market in London: January to December 2020 [Data Set]. Retrieved May 2021 from  
 https://www.ons.gov.uk/peoplepopulationandcommunity/housing/adhocs/12871privaerentalmarketinlondonjanuarytodecember2020. Licensed under UK Open Government License.
-- UCL (on behalf of Greater London Authority), 2014. London Output Area Classification [Data Set]. Retrieved May 2021, from
-https://data.london.gov.uk/dataset/london-area-classification. Licensed under CC.
+- **Output Area Classification**: UCL (on behalf of Greater London Authority), 2014. London Output Area Classification [Data Set]. Retrieved May 2021, from https://data.london.gov.uk/dataset/london-area-classification. Licensed under CC.
  
 ##### 3.1.2. Berlin
 
-- Amt für Statistik Berlin-Brandenburg (2015a). Lebensweltlich orientierte Räume (LOR)-Planungsräume [Data Set].  
-Retrieved May 2021, through FIS-Broker, from https://fbinter.stadt-berlin.de/fb/index.jsp. Licensed under CC BY-SA 3.0 DE
-- Amt für Statistik Berlin-Brandenburg (2015b). Lebensweltlich orientierte Räume (LOR)-Prognoseräume. [Data Set].  
-Retrieved May 2021, through FIS-Broker, from https://fbinter.stadt-berlin.de/fb/index.jsp. Licensed under CC BY-SA 3.0 DE.
-- Amt für Statistik Berlin-Brandenburg (2019). Einwohnerregisterstatistik Berlin [Data Set]. Retrieved May 2021, from Statistisches Informationssystem Berlin Brandenburg, https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml. Licensed under CC BY 3.0 DE. 
-- Geoportal Berlin (2017). Bezirksgrenzen, ESRI Shapefile [Data Set]. Retrieved May 2021, from https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/. 
-- Geoportal Berlin (2019). Wohnatlas Berlin - Angebotsmieten 2018 (in EUR/m² monatlich, netto kalt). [Data Set]]. Retrieved May 2021, through FIS-Broker, https://www.stadtentwicklung.berlin.de/wohnen/wohnatlas/index.shtml. Licensed under Data licence Germany – attribution – Version 2.0 
-- Polizei Berlin (2020). Polizeiliche Kriminalstatistik [Data Set]. Retrieved May 2021 from https://daten.berlin.de/datensaetze/kriminalitätsatlas-berlin. Licensed under CC BY-SA 3.0 DE.
+- **Planungsräume Shapefiles**: Amt für Statistik Berlin-Brandenburg (2015a). Lebensweltlich orientierte Räume (LOR)-Planungsräume [Data Set]. Retrieved May 2021, through FIS-Broker, from https://fbinter.stadt-berlin.de/fb/index.jsp. Licensed under CC BY 3.0 DE
+- **Prognoseräume Shapefiles**: Amt für Statistik Berlin-Brandenburg (2015b). Lebensweltlich orientierte Räume (LOR)-Prognoseräume. [Data Set]. Retrieved May 2021, through FIS-Broker, from https://fbinter.stadt-berlin.de/fb/index.jsp. Licensed under CC BY 3.0 DE.
+- **Population, Age and Place of Orign Data**: Amt für Statistik Berlin-Brandenburg (2019). Einwohnerregisterstatistik Berlin [Data Set]. Retrieved May 2021, from Statistisches Informationssystem Berlin Brandenburg, https://www.statistik-berlin-brandenburg.de/webapi/jsf/tableView/tableView.xhtml. Licensed under CC BY 3.0 DE. 
+- **Bezirk Shapefiles**: Geoportal Berlin (2017). Bezirksgrenzen, ESRI Shapefile [Data Set]. Retrieved May 2021, from https://daten.odis-berlin.de/de/dataset/bezirksgrenzen/. Licensed under https://www.stadtentwicklung.berlin.de/geoinformation/download/nutzIII.pdf.
+- **Rent Data**: Geoportal Berlin (2019). Wohnatlas Berlin - Angebotsmieten 2018 (in EUR/m² monatlich, netto kalt). [Data Set]. Retrieved May 2021, through FIS-Broker, https://www.stadtentwicklung.berlin.de/wohnen/wohnatlas/index.shtml. Licensed under Data licence Germany – attribution – Version 2.0 
+- **Crime Data**: Polizei Berlin (2020). Polizeiliche Kriminalstatistik [Data Set]. Retrieved May 2021 from https://daten.berlin.de/datensaetze/kriminalitätsatlas-berlin. Licensed under CC BY-SA 3.0 DE.
 
 ##### 3.1.3. Global
 
-- © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018a). High Resolution Layer: Imperviousness Density (IMD) 2018 [Data Set]. Retrieved May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/imperviousness/statusmaps/imperviousness-density-2018?tab=metadata. Licensed under Copernicus data and information policy Regulation (EU).
-- © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018b). High Resolution Layer: Tree Cover Density (TCD) 2018 [Data Set]. Retrieved from May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-denity/status-maps/tree-cover-density-2018?tab=mapview. Licensed under Copernicus data and information policy Regulation (EU)
-- Google (n.d.). [Google Maps coordinates for defined PoI]. Retrieved 1 June 2021 from https://www.google.de/maps.
-- OpenStreetMap contributors. (2021) Data of Places of Worship, Museums, Theatres and Nightlife
+- **Tree Cover Density**: © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018a). High Resolution Layer: Imperviousness Density (IMD) 2018 [Data Set]. Retrieved May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/imperviousness/statusmaps/imperviousness-density-2018?tab=metadata. Licensed under Copernicus data and information policy Regulation (EU).
+- **Imperviousness**: © European Union, Copernicus Land Monitoring Service, European Environment Agency (EEA) (2018b). High Resolution Layer: Tree Cover Density (TCD) 2018 [Data Set]. Retrieved from May 2021, from https://land.copernicus.eu/pan-european/high-resolution-layers/forests/tree-cover-denity/status-maps/tree-cover-density-2018?tab=mapview. Licensed under Copernicus data and information policy Regulation (EU)
+- **Coordinates**: Google (n.d.). [Google Maps coordinates for defined PoI]. Retrieved 1 June 2021 from https://www.google.de/maps.
+- **OSM Data**: OpenStreetMap contributors. (2021) Data of Places of Worship, Museums, Theaters and Nightlife
 [Data Sets from 2021]. Retrieved May 2021. Licensed under Open Data Commons Open Database License. 
 
 #### 3.2. Software
@@ -84,4 +78,4 @@ Humans of Data. Retrieved 6 June 2021, from https://humansofdata.atlan.com/2019/
 </br>
 
 ### 4. License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> Unless otherwise stated, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
