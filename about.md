@@ -25,8 +25,7 @@ This project contains National Statistics data © Crown copyright and database r
 
 - Greater London Authority (2011a) London Borough Profiles and Atlas [Data Set, Web app]. Retrieved May 2021 from https://data.london.gov.uk/dataset/london-borough-profiles. Licensed under UK Open Government License.
 - **Borough and Output Shapefiles**: Greater London Authority (2011b). Statistical GIS Boundary Files for London [Data Set]. Retrieved May 2021 from https://data.london.gov.uk/dataset/statistical-gis-boundary-files-london. Licensed under UK Open Government License.
-- **Population and Age**: Greater London Authority. (2020). 2019-based trend projections, Central Range (upperbound) [Data Set].  
-Retrieved May, 2021 from https://data.london.gov.uk/dataset/gla-population-projections-custom-age-tables?q=ae%20demographics. Licensed under UK Open Government License.
+- **Population and Age**: Greater London Authority. (2020). 2019-based trend projections, Central Range (upperbound) [Data Set]. Retrieved May, 2021 from https://data.london.gov.uk/dataset/gla-population-projections-custom-age-tables?q=ae%20demographics. Licensed under UK Open Government License.
 - **Crime Data**: Metropolitan Police Service. (2021). MPS Borough Level Crime (most recent 24 months) [Data Set]. Retrieved May 2021 from https://data.london.gov.uk/dataset/recorded_crime_summary. Licensed under UK Open Government Licence.
 - **Ethnicity Data**: Office for National Statistics (2011). Census Data 2011 - Workday Population - Ethnic Group. [Data	Set]. Retrieved May 2021, from https://www.nomisweb.co.uk/census/2011/wd201ew.  
 Licensed under UK Open Government License.
